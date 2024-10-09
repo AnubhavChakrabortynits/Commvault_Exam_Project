@@ -17,3 +17,6 @@ It is a web application where users can signup and login and upload images to AW
 - /images (for getting the list of images)
 - /login (for login page)
 - /register (for register page)
+
+# Google Drive Link of Demo Video
+https://drive.google.com/file/d/15Ul6ajF3IywaR82C7xkNJZxotHiOJVjD/view?usp=sharing
