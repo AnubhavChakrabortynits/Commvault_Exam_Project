@@ -17,8 +17,7 @@ def launch_ec2_instance():
         InstanceType='t2.micro',
         MinCount=1,
         MaxCount=1,
-        KeyName=os.getenv('KEY_PAIR'), 
-        #SecurityGroupIds=['sg-0123456789abcdef0'],  # Replace with your security group ID
+        KeyName=os.getenv('KEY_PAIR'),    
         TagSpecifications=[{
             'ResourceType': 'instance',
             'Tags': [{'Key': 'Name', 'Value': 'FlaskAppInstance'}]
@@ -78,7 +77,7 @@ def configure_nginx_and_start_app(ssh):
         'virtualenv venv',
         'source venv/bin/activate',
         'pip install flask gunicorn',
-        'gunicorn --bind 0.0.0.0:5000 app:app &',  # Replace 'app:app' with your entry point
+        'gunicorn --bind 0.0.0.0:5000 app:app &',
         'sudo systemctl restart nginx'
     ]
 
@@ -96,7 +95,7 @@ def deploy_flask_app():
         setup_environment(ssh)
 
   
-        local_app_path = '/path/to/your/flask-app/app.py'  # Path to your local app.py
+        local_app_path = '/path/to/your/flask-app/app.py' 
         remote_app_path = '/home/ec2-user/app.py'
         upload_flask_app(ssh, local_app_path, remote_app_path)
 
